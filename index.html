@@ -1,7 +1,7 @@
-<!DOCTYPE html><html lang="vi"><head><meta charset="utf-8"><meta name="color-scheme" content="light only"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Chinese Vocabulary</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500..800;1,9..144,500&family=Be+Vietnam+Pro:wght@400;500;600&family=Ma+Shan+Zheng&family=ZCOOL+KuaiLe&display=swap" rel="stylesheet"><script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<!DOCTYPE html><html lang="vi"><head><meta charset="utf-8"><meta name="color-scheme" content="light only"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Chinese Vocabulary</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500..800;1,9..144,500&family=Be+Vietnam+Pro:wght@400;500;600&family=Lora:ital,wght@0,400..700;1,400..600&family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet"><script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <style>
 :root{color-scheme:light only;--bg:#faf1e4;--cd:#fde8ef;--pk:#f6bfd1;--pk2:#c2417a;--tx:#5a2a3f;--mt:#a0707f;--hd:#b0306b;--ok:#d3efdf;--bad:#fbd0d0;--ln:#f0d2c4;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-*{box-sizing:border-box}body{margin:0;font:16px/1.55 "Be Vietnam Pro","Ma Shan Zheng","ZCOOL KuaiLe","STKaiti","KaiTi","Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--tx)}
+*{box-sizing:border-box}body{margin:0;font:16px/1.55 "Be Vietnam Pro",Lora,"Noto Serif SC","Songti SC","SimSun","Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--tx)}
 header{background:linear-gradient(135deg,#faf1e4,#f6bfd1 60%,#e88aae);padding:16px 14px;text-align:center;color:#8f1f55}header h1{margin:0;font-size:1.3rem}
 main,.w{max-width:820px;margin:auto;padding:12px}
 .card,.fcard,.det{background:var(--cd);border:1px solid var(--ln);border-radius:18px;padding:16px;margin:10px 0;box-shadow:0 4px 14px #c2417a22}
@@ -15,19 +15,49 @@ input,textarea{font:inherit;border:1px solid var(--pk);border-radius:12px;paddin
 .pb{height:10px;background:var(--ln);border-radius:9px;overflow:hidden}.pb i{display:block;height:100%;background:linear-gradient(90deg,#f6bfd1,#c2417a)}
 .acts{text-align:center}.cols{display:grid;grid-template-columns:1fr 1fr;gap:10px}.timer{font-size:2rem;color:var(--pk2);text-align:center;font-weight:700}
 .ex{margin:.4em 0}a{color:var(--pk2)}ul{padding-left:1.2em}.fb{white-space:pre-wrap}
-h1,h3,h4,.big,.huge,.timer{color:var(--hd);font-family:Fraunces,"Ma Shan Zheng","ZCOOL KuaiLe","STKaiti","KaiTi","Noto Sans SC","PingFang SC","Microsoft YaHei",Georgia,serif}.hz{color:var(--hd);font-family:"Ma Shan Zheng","ZCOOL KuaiLe","STKaiti","KaiTi","Noto Sans SC","PingFang SC","Microsoft YaHei",serif;letter-spacing:.04em}.huge{line-height:1.2}header h1{color:#8f1f55;font-size:2rem;font-weight:800;letter-spacing:.5px}header i{color:#8f1f55;font-family:Fraunces,"Ma Shan Zheng","ZCOOL KuaiLe","STKaiti","KaiTi","Noto Sans SC","PingFang SC","Microsoft YaHei",Georgia,serif}
-</style></head><body>
-<header><h1>Chinese Vocabulary</h1></header>
+h1,h3,h4,.big,.huge,.timer{color:var(--hd);font-family:Fraunces,Lora,"Noto Serif SC","Songti SC","SimSun","Noto Sans SC","PingFang SC","Microsoft YaHei",Georgia,serif}.hz{color:var(--hd);font-family:Lora,"Noto Serif SC","Songti SC","SimSun","Noto Sans SC","PingFang SC","Microsoft YaHei",serif;letter-spacing:.04em}.huge{line-height:1.2}header h1{color:#8f1f55;font-size:2rem;font-weight:800;letter-spacing:.5px}header i{color:#8f1f55;font-family:Fraunces,Lora,"Noto Serif SC","Songti SC","SimSun","Noto Sans SC","PingFang SC","Microsoft YaHei",Georgia,serif}
+</style><style id=ui2>
+:root{--bg:#f9f0e3;--cd:#fffaf5;--ln:#ecd9c6;--hd:#a02458;--hzf:Lora,"Noto Serif SC","Songti SC","SimSun",serif}
+body{font-size:16.5px}
+header{position:sticky;top:0;z-index:20;background:rgba(249,240,227,.93);backdrop-filter:blur(8px);border-bottom:1px solid var(--ln);padding:10px 16px;text-align:left;color:var(--hd)}
+header .bar{max-width:820px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+header h1{font-size:1.45rem;color:var(--hd);margin:0}
+.nav{display:flex;gap:4px;flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start}
+.nav button{border:0;background:transparent;border-radius:999px;padding:8px 14px;margin:0;font-weight:500;white-space:nowrap}
+.nav button.on{background:var(--pk2);color:#fff}
+.card,.fcard,.det{background:var(--cd);border:1px solid var(--ln);border-radius:20px;box-shadow:0 2px 10px #a0245814}
+details.card>summary{cursor:pointer;list-style:none}details.card>summary::-webkit-details-marker{display:none}
+.fcard{min-height:300px;display:flex;flex-direction:column;justify-content:center;cursor:pointer;padding:22px}
+.fcard .det{border:0;box-shadow:none;background:transparent;margin:0;padding:0;text-align:left}
+.huge{font-size:5.5rem;line-height:1.2;color:var(--hd);padding:30px 0}
+.big,.huge,.hz{font-family:var(--hzf)}.hz{color:var(--hd);font-size:1.05em}.big{font-size:2rem}
+i.py,.pyv{font-family:Lora,serif;font-style:italic;color:#7a4a5e}
+button{padding:9px 16px;transition:.15s}button:hover{background:var(--pk)}
+.acts button.yes,.acts button.mid,.acts button.no{padding:12px 18px;font-weight:600;border:0}
+.pb{height:9px;background:#efddd0;border-radius:9px;overflow:hidden;flex:1}
+.pb i{background:linear-gradient(90deg,#f6bfd1,#c2417a)}
+.pbw{display:flex;align-items:center;gap:10px;margin:8px 0}.pbw span{min-width:40px;text-align:right;font-size:.85rem;color:var(--mt);font-weight:600}
+.wr{padding:12px 16px;margin:8px 0}.wr summary{display:flex;align-items:center;gap:16px}
+.hzc{min-width:92px;text-align:center}.hzc .hz{font-size:2rem;display:block;line-height:1.2}.pyv{font-size:.85rem}
+.mn{flex:1;min-width:0}.wr .det{border:0;box-shadow:none;padding:10px 0 0;background:transparent}
+input{width:100%}input[type=number]{width:84px}
+</style>
+</head><body>
+<header><div class=bar><h1>Chinese Vocabulary</h1><div class=nav><button data-t=fc onclick="go('fc')">🃏 Flashcard</button><button data-t=ls onclick="go('ls')">📚 Danh sách</button><button data-t=qz onclick="go('qz')">📝 Quiz</button><button data-t=ap onclick="go('ap')">💬 Ứng dụng</button></div></div></header>
 <main>
-<div class=card id=flt></div>
-<div class=nav><button data-t=fc onclick="go('fc')">🃏 Flashcard</button><button data-t=qz onclick="go('qz')">📝 Quiz</button><button data-t=ap onclick="go('ap')">💬 Ứng dụng thực tế</button></div>
+<details class=card id=flt></details>
+<small id=sy class=c></small>
 <div id=main></div>
 <p class=c style="font-size:.8rem">Dữ liệu tự đồng bộ từ Google Sheet mỗi lần mở trang (hoặc bấm ↻). Tiến độ học lưu ngay trên trình duyệt này.</p>
 </main>
 <script>
 let D=[];
 let P={};try{P=JSON.parse(localStorage.getItem('zhP')||'{}')}catch(e){}
-const sv=()=>{try{localStorage.setItem('zhP',JSON.stringify(P))}catch(e){}};
+let T={};try{T=JSON.parse(localStorage.getItem('zhT')||'{}')}catch(e){}
+const sv=()=>{try{localStorage.setItem('zhP',JSON.stringify(P));localStorage.setItem('zhT',JSON.stringify(T))}catch(e){}};
+const APP_URL='https://script.google.com/macros/s/AKfycbzesHYR7bKn_qacFkEVT8F19chx8Sahp5Cz8Yh0rCTUF4PPtouVWPxGyptme7S-Fc8E1g/exec',APP_KEY='wuht';let QQ={},tq;const syS=t=>{const e=document.getElementById('sy');if(e)e.textContent=t};
+function push(rows){rows.forEach(([a,b])=>QQ[a]=b);clearTimeout(tq);tq=setTimeout(flush,1200)}
+async function flush(){const rows=Object.entries(QQ);QQ={};if(!rows.length)return;if(!APP_URL)return syS('☁ Tiến độ lưu trên máy này (chưa nối Sheet)');syS('⏳ Đang gửi tiến độ lên Sheet…');try{await fetch(APP_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:JSON.stringify({key:APP_KEY,rows:rows.map(([a,b])=>[+a,b])})});syS('☁ Đã gửi tiến độ lên Google Sheet')}catch(e){rows.forEach(([a,b])=>QQ[a]=b);syS('⚠ Gửi lỗi, sẽ thử lại lần sau')}}
 const $=i=>document.getElementById(i),R=a=>a[Math.random()*a.length|0];
 const sh=a=>{a=[...a];for(let i=a.length-1;i>0;i--){let j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
 const esc=s=>String(s==null?'':s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
@@ -40,26 +70,32 @@ document.addEventListener('click',e=>{const t=e.target;
  const b=t.closest&&t.closest('.chips>button');if(b){const p=b.parentNode;if(p.classList.contains('one')){[...p.children].forEach(x=>x.classList.remove('on'));b.classList.add('on')}else b.classList.toggle('on')}},true);
 let MAX=1,F={a:1,b:1,L:[]};
 const pool=()=>D.filter(w=>w.stt>=F.a&&w.stt<=F.b&&(!F.L.length||w.ls.some(l=>F.L.includes(l))));
-function fltUI(){$('flt').innerHTML=`<b>Chọn từ cần học</b> · <span id=cnt></span><br>STT từ <input id=fa type=number value=${F.a} min=1 max=${MAX}> đến <input id=fb type=number value=${F.b} min=1 max=${MAX}>
+function fltUI(){$('flt').innerHTML=`<summary><b>🎯 Chọn từ cần học</b> · <span id=cnt></span> <span class=sm>(bấm để mở bộ lọc)</span></summary><br>STT từ <input id=fa type=number value=${F.a} min=1 max=${MAX}> đến <input id=fb type=number value=${F.b} min=1 max=${MAX}>
 <div class="chips" id=fl>${Array.from({length:15},(_,i)=>`<button data-k=${i+1} class="${F.L.includes(i+1)?'on':''}">Bài ${i+1}</button>`).join('')}</div>
 <button class=go onclick="fApply()">Áp dụng</button> <button onclick="load()">↻ Đồng bộ lại từ Google Sheet</button> <span class=sm>Để trống bài = tất cả bài</span>`;$('cnt').textContent=pool().length+' từ'}
 function fApply(){F.a=+$('fa').value||1;F.b=+$('fb').value||MAX;F.L=[...document.querySelectorAll('#fl .on')].map(b=>+b.dataset.k);$('cnt').textContent=pool().length+' từ';go(S.t)}
-const det=(w,s)=>`<div class=det><div class=big>${hz(w,s?'sh':'')} <button onclick="say('${w.han}')">🔊</button></div><p><b>${esc(w.vi)}</b> · Hán Việt: ${esc(w.hv)} · <em>${esc(w.pos)}</em></p>
+const bw=w=>{const p=P[w.stt]||0;return `<div class=pbw><div class=pb><i style="width:${p}%"></i></div><span>${p}%</span></div>`};
+const det=(w,s,nb)=>`<div class=det><div class=big>${hz(w,s?'sh':'')} <button onclick="say('${w.han}')">🔊</button></div>${nb?'':bw(w)}<p><b>${esc(w.vi)}</b> · Hán Việt: ${esc(w.hv)} · <em>${esc(w.pos)}</em></p>
 ${w.rad?`<p class=sm><b>Bộ thủ:</b>\n${esc(w.rad)}</p>`:''}${w.ex.map(e=>`<p class=ex>${zs(e,s?'sh':'')}<br>${esc(e.vi)}</p>`).join('')}${w.note?`<p class=sm><b>Ghi chú:</b>\n${esc(w.note)}</p>`:''}
 <p class=sm>Bài: ${w.ls.join(', ')} · STT ${w.stt} · <a target=_blank href="https://hanzii.net/search/word/${encodeURIComponent(w.han)}?hl=en">Tra Hanzii ↗</a></p></div>`;
 const S={t:'fc',sub:'cz'};let tm;
-function go(t){S.t=t;clearInterval(tm);document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('on',b.dataset.t==t));({fc:()=>fcStart(0),qz:quizSetup,ap:()=>apGo(S.sub)})[t]()}
+function go(t){S.t=t;clearInterval(tm);document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('on',b.dataset.t==t));({fc:()=>fcStart(0),ls:listView,qz:quizSetup,ap:()=>apGo(S.sub)})[t]()}
+// ---------- Danh sách
+function listView(){$('main').innerHTML=`<div class=card><input id=q placeholder="🔍 Tìm chữ Hán, pinyin hoặc nghĩa…" oninput="listDraw()"><p class=sm id=lc></p></div><div id=lst></div>`;listDraw()}
+function listDraw(){const q=nm($('q').value||''),a=pool().filter(w=>!q||nm(w.han+w.py+w.vi+w.hv).includes(q));
+ $('lc').textContent=a.length+' từ · tiến độ trung bình '+(a.length?Math.round(a.reduce((x,w)=>x+(P[w.stt]||0),0)/a.length):0)+'% · bấm vào từ để xem chi tiết';
+ $('lst').innerHTML=a.map(w=>`<details class="card wr" ontoggle="if(this.open&&!this.dataset.l){this.dataset.l=1;this.insertAdjacentHTML('beforeend',det(D.find(x=>x.stt==${w.stt}),1,1))}"><summary><div class=hzc><span class=hz>${esc(w.han)}</span><i class=pyv>${esc(w.py)}</i></div><div class=mn><b>${esc(w.vi)}</b><span class=sm> · ${esc(w.hv)}</span>${bw(w)}</div></summary></details>`).join('')}
 // ---------- Flashcard
 let fc={};
 function fcStart(s){const d=pool().filter(w=>(P[w.stt]||0)<100);fc={deck:s?sh(d):d,i:0,f:0,s};fcDraw()}
-function fcDraw(){const d=fc.deck;let h=`<div class=acts><button class="${fc.s?'':'on'}" onclick="fcStart(0)">Theo thứ tự</button><button class="${fc.s?'on':''}" onclick="fcStart(1)">Xáo trộn</button><button onclick="if(confirm('Xoá toàn bộ tiến độ?')){P={};sv();fcStart(fc.s)}">Đặt lại tiến độ</button></div>`;
+function fcDraw(){const d=fc.deck;let h=`<div class=acts><button class="${fc.s?'':'on'}" onclick="fcStart(0)">Theo thứ tự</button><button class="${fc.s?'on':''}" onclick="fcStart(1)">Xáo trộn</button><button onclick="if(confirm('Đặt lại tiến độ tất cả từ về 0%?')){D.forEach(w=>{P[w.stt]=0;T[w.stt]=Date.now()});sv();push(D.map(w=>[w.stt,0]));fcStart(fc.s)}">Đặt lại tiến độ</button></div>`;
  if(!d.length){$('main').innerHTML=h+'<div class=card>🎉 Không còn từ nào cần học trong bộ lọc này.</div>';return}
  const w=d[fc.i],p=P[w.stt]||0;
  $('main').innerHTML=h+`<p class=c>Thẻ ${fc.i+1}/${d.length} · còn ${d.length} từ chưa thuộc</p><div class=fcard onclick="if(!event.target.closest('a,button,.tg')){fc.f^=1;fcDraw()}">${fc.f?det(w,1):`<div class=huge>${esc(w.han)}</div><p class=c>Chạm để lật thẻ</p>`}</div>
  <div class=pb><i style="width:${p}%"></i></div><p class=c>Tiến độ từ này: ${p}%</p>
  <div class=acts><button class=no onclick="fcAct(0)">Chưa thuộc (0%)</button><button class=mid onclick="fcAct(1)">Gần thuộc (+10%)</button><button class=yes onclick="fcAct(2)">Đã thuộc (100%)</button></div>`}
 function fcAct(k){const d=fc.deck,w=d[fc.i];let p=P[w.stt]||0;
- if(k==2)p=100;else if(k==1)p=Math.min(100,p+10);else p=0;P[w.stt]=p;sv();
+ if(k==2)p=100;else if(k==1)p=Math.min(100,p+10);else p=0;P[w.stt]=p;T[w.stt]=Date.now();sv();push([[w.stt,p]]);
  if(p>=100)d.splice(fc.i,1);else d.push(d.splice(fc.i,1)[0]);
  if(fc.i>=d.length)fc.i=0;fc.f=0;fcDraw()}
 // ---------- Quiz
@@ -129,8 +165,8 @@ function pex(t){const o=[];let c=null;for(let l of String(t||'').split('\n')){l=
  if(l[0]=='('){if(c&&!c.py)c.py=l.replace(/^\(|\)$/g,'')}else if(CJK.test(l)){c={zh:l,py:'',vi:''};o.push(c)}else if(c&&!c.vi&&!l.startsWith('Lưu ý'))c.vi=l}
  return o.filter(e=>!e.zh.includes('__')&&e.vi&&e.py&&e.py.replace(/\W/g,'').toLowerCase().slice(0,5)!=e.vi.replace(/\W/g,'').toLowerCase().slice(0,5))}
 function ingest(v){const g=(r,i)=>String(r[i]==null?'':r[i]).trim();
- D=v.slice(1).filter(r=>/^\d+$/.test(g(r,0))&&g(r,1)).map(r=>({stt:+g(r,0),han:g(r,1),py:g(r,2),hv:g(r,3),vi:g(r,4),rad:g(r,5),pos:g(r,6),ex:pex(r[7]),note:String(r[8]||'').split('\n').filter(x=>!x.trim().startsWith('[Nguồn')).join('\n').trim(),ls:(g(r,9).match(/\d+/g)||[]).map(Number)}));
- MAX=Math.max(...D.map(w=>w.stt));F={a:1,b:MAX,L:[]};fltUI();go(S.t)}
+ D=v.slice(1).filter(r=>/^\d+$/.test(g(r,0))&&g(r,1)).map(r=>({stt:+g(r,0),han:g(r,1),py:g(r,2),hv:g(r,3),vi:g(r,4),rad:g(r,5),pos:g(r,6),ex:pex(r[7]),note:String(r[8]||'').split('\n').filter(x=>!x.trim().startsWith('[Nguồn')).join('\n').trim(),ls:(g(r,9).match(/\d+/g)||[]).map(Number),sp:(m=>m?+m[1]:NaN)(g(r,10).match(/(\d+(?:\.\d+)?)/))}));
+ D.forEach(w=>{if(!isNaN(w.sp)&&(P[w.stt]===undefined||Date.now()-(T[w.stt]||0)>12e5))P[w.stt]=Math.round(w.sp)});sv();MAX=Math.max(...D.map(w=>w.stt));F={a:1,b:MAX,L:[]};fltUI();go(S.t)}
 function csvIn(f){if(!f)return;const r=new FileReader();r.onload=()=>{const t=r.result,o=[];let row=[],c='',q=0;for(let i=0;i<t.length;i++){const ch=t[i];if(q){if(ch=='"'){if(t[i+1]=='"'){c+='"';i++}else q=0}else c+=ch}else if(ch=='"')q=1;else if(ch==','){row.push(c);c=''}else if(ch=='\n'){row.push(c.replace(/\r$/,''));o.push(row);row=[];c=''}else c+=ch}row.push(c);o.push(row);ingest(o)};r.readAsText(f)}
 function fileIn(f){if(!f)return;if(/\.xlsx?$/i.test(f.name)&&window.XLSX){const r=new FileReader();r.onload=()=>{const wb=XLSX.read(r.result,{type:'array'}),ws=wb.Sheets['Từ vựng']||wb.Sheets[wb.SheetNames[0]];ingest(XLSX.utils.sheet_to_json(ws,{header:1,raw:false,defval:''}))};r.readAsArrayBuffer(f)}else csvIn(f)}
 async function load(){$('main').innerHTML='<div class=card>⏳ Đang tải dữ liệu từ Google Sheet…</div>';
