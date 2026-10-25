@@ -194,9 +194,12 @@ const GR=['因为…所以…','虽然…但是…','先…再…','已经…了
 const ERR='<p>Không gọi được AI. Hãy cho phép khi Claude hỏi quyền rồi thử lại. (Chấm điểm bằng AI chỉ chạy khi mở trang trong Claude.)</p>';
 async function ai(q,j){
  if(typeof claude!=='undefined'&&claude.use){const s=await claude.use('sample');if(s)return j?s.json(q):(await s(q)).text}
- if(!APP_URL)throw 0;
- const r=await fetch(APP_URL,{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify({key:APP_KEY,grade:{prompt:q}})}),o=await r.json();
- if(!o.text)throw 0;return j?JSON.parse(o.text.replace(/```json|```/g,'').trim()):o.text}
+ if(!APP_URL)throw new Error('chưa có APP_URL trong file trang');
+ let r,o;
+ try{r=await fetch(APP_URL,{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify({key:APP_KEY,grade:{prompt:q}})})}catch(e){throw new Error('không kết nối được tới Apps Script (kiểm tra quyền truy cập "Bất kỳ ai" và link)')}
+ try{o=await r.json()}catch(e){throw new Error('Apps Script trả về trang lỗi (HTTP '+r.status+'), thường do chưa triển khai Phiên bản mới hoặc code chưa có hàm chấm')}
+ if(!o.text)throw new Error(o.error||'AI không trả lời');
+ return j?JSON.parse(o.text.replace(/```json|```/g,'').trim()):o.text}
 let DR={};
 function drNew(){clearInterval(tm);const p=pool();if(!p.length)return $('sub').innerHTML='<div class=card>Bộ lọc trống.</div>';DR={w:R(p),s:R(SIT),g:R(GR),t:20,tr:''};
  $('sub').innerHTML=`<div class=card><h3>Bốc thăm</h3><div class=big>${hz(DR.w)}</div><p>Cấu trúc: <b>${DR.g}</b><br>Tình huống: <b>${DR.s}</b></p><textarea id=dt placeholder="Đặt một câu tiếng Trung chứa từ trên…"></textarea><p><button onclick="mic()">🎤 Đọc to câu của bạn</button> <span id=tr class=sm></span></p><button class=go onclick="drSub()">Nộp câu</button> <button onclick="drNew()">Bốc lại</button><div id=fb class=fb></div></div>`;}
@@ -220,7 +223,7 @@ async function stSub(){const t=$('sx').value.trim();if(!t)return;const loc=stLoc
  $('fb').innerHTML='⏳ AI đang chấm bài, vui lòng đợi vài giây…';
  try{const r=await ai(`Bạn là giáo viên tiếng Trung (HSK1-3), trả lời bằng tiếng Việt, văn bản thường (không dùng markdown). Từ bắt buộc: ${C.p.map(w=>w.han+' ('+w.vi+')').join(', ')}. Câu chuyện học sinh viết:\n${t}\nHãy: 1) Nêu từ nào đã dùng, thiếu, dùng sai nghĩa. 2) Liệt kê lỗi ngữ pháp/từ vựng: câu gốc → câu sửa + giải thích. 3) Viết lại bản hoàn chỉnh kèm pinyin. 4) Nhận xét chung và điểm /10.`);
   $('fb').innerHTML='<hr><h3>AI chấm bài</h3><div style="white-space:pre-wrap">'+esc(r)+'</div>'+loc}
- catch(e){$('fb').innerHTML='<p class=sm>Chưa gọi được AI nên đây là kết quả chấm tự động theo quy tắc.</p>'+loc}}
+ catch(e){$('fb').innerHTML='<p class=sm><b>Chưa gọi được AI:</b> '+esc((e&&e.message)||'lỗi không rõ')+'. Dưới đây là kết quả chấm tự động theo quy tắc.</p>'+loc}}
 function mtSetup(){$('sub').innerHTML=`<div class=card><h3>Nối từ</h3><p>Số câu:</p>${chipsOne('mn',[[5,5],[8,8],[10,10]])}<button class=go onclick="mtStart()">Bắt đầu</button></div>`}
 let M={};
 function mtStart(){const seen=new Set(),it=[];for(const w of sh(pool()))if(!seen.has(w.vi)){seen.add(w.vi);it.push(w)}
