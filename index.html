@@ -192,7 +192,11 @@ function czPick(id){if(C.done)return;C.done=1;const{w,e}=C,ok=id==w.stt;
 const SIT=['nói về thời tiết','gọi món ở nhà hàng','giới thiệu bản thân','hỏi đường','mua sắm quần áo','nói về sở thích','kể về một ngày của bạn','hẹn bạn đi chơi','ở bệnh viện/sức khoẻ','nói về gia đình','ở trường học','lên kế hoạch du lịch'];
 const GR=['因为…所以…','虽然…但是…','先…再…','已经…了','比 (so sánh)','正在 + động từ','都…了','要…了 (sắp)','động từ + 过','得 (bổ ngữ trạng thái)','有点儿 + tính từ','是…的'];
 const ERR='<p>Không gọi được AI. Hãy cho phép khi Claude hỏi quyền rồi thử lại. (Chấm điểm bằng AI chỉ chạy khi mở trang trong Claude.)</p>';
-async function ai(q,j){const s=await claude.use('sample');if(!s)throw 0;return j?s.json(q):(await s(q)).text}
+async function ai(q,j){
+ if(typeof claude!=='undefined'&&claude.use){const s=await claude.use('sample');if(s)return j?s.json(q):(await s(q)).text}
+ if(!APP_URL)throw 0;
+ const r=await fetch(APP_URL,{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify({key:APP_KEY,grade:{prompt:q}})}),o=await r.json();
+ if(!o.text)throw 0;return j?JSON.parse(o.text.replace(/```json|```/g,'').trim()):o.text}
 let DR={};
 function drNew(){clearInterval(tm);const p=pool();if(!p.length)return $('sub').innerHTML='<div class=card>Bộ lọc trống.</div>';DR={w:R(p),s:R(SIT),g:R(GR),t:20,tr:''};
  $('sub').innerHTML=`<div class=card><h3>Bốc thăm</h3><div class=big>${hz(DR.w)}</div><p>Cấu trúc: <b>${DR.g}</b><br>Tình huống: <b>${DR.s}</b></p><textarea id=dt placeholder="Đặt một câu tiếng Trung chứa từ trên…"></textarea><p><button onclick="mic()">🎤 Đọc to câu của bạn</button> <span id=tr class=sm></span></p><button class=go onclick="drSub()">Nộp câu</button> <button onclick="drNew()">Bốc lại</button><div id=fb class=fb></div></div>`;}
@@ -212,7 +216,11 @@ function stNew(n){const p=sh(pool()).slice(0,n||8);if(!p.length)return $('sub').
 function stLocal(t){const L=C.p,n=L.length,u=L.filter(w=>hasW(t,w)),m=L.filter(w=>!hasW(t,w)),len=(t.match(/[\u4e00-\u9fff]/g)||[]).length,ss=(t.match(/[。！？!?]/g)||[]).length,need=Math.max(2,Math.ceil(n/3));
  const l1=len>=n*5,s1=ss>=need,sc=Math.round((u.length/n*7+(l1?1.5:len>=n*3?.75:0)+(s1?1.5:ss?.75:0))*10)/10;
  return `<hr><h3>${sc}/10 điểm</h3><p><b>Đã dùng ${u.length}/${n} từ</b></p>${u.map(w=>`<div>✅ ${esc(w.han)} · ${esc(w.vi)}</div>`).join('')}${m.map(w=>`<div>❌ Thiếu: ${esc(w.han)} (${esc(w.py)}) · ${esc(w.vi)}</div>`).join('')}<p>${l1?'✅':'❌'} Độ dài: ${len} chữ Hán (nên từ ${n*5} trở lên)<br>${s1?'✅':'❌'} Số câu: ${ss} câu hoàn chỉnh (nên từ ${need} câu, kết thúc bằng 。！？)</p><p class=sm>Chấm tự động theo từ vựng, độ dài và số câu. Ngữ pháp và độ tự nhiên bạn cần tự đối chiếu.</p>${m.length?'<h4>Ôn lại các từ còn thiếu</h4>'+m.map(w=>det(w,1,1)).join(''):''}`}
-function stSub(){const t=$('sx').value.trim();if(!t)return;$('fb').innerHTML=stLocal(t)}
+async function stSub(){const t=$('sx').value.trim();if(!t)return;const loc=stLocal(t);
+ $('fb').innerHTML='⏳ AI đang chấm bài, vui lòng đợi vài giây…';
+ try{const r=await ai(`Bạn là giáo viên tiếng Trung (HSK1-3), trả lời bằng tiếng Việt, văn bản thường (không dùng markdown). Từ bắt buộc: ${C.p.map(w=>w.han+' ('+w.vi+')').join(', ')}. Câu chuyện học sinh viết:\n${t}\nHãy: 1) Nêu từ nào đã dùng, thiếu, dùng sai nghĩa. 2) Liệt kê lỗi ngữ pháp/từ vựng: câu gốc → câu sửa + giải thích. 3) Viết lại bản hoàn chỉnh kèm pinyin. 4) Nhận xét chung và điểm /10.`);
+  $('fb').innerHTML='<hr><h3>AI chấm bài</h3><div style="white-space:pre-wrap">'+esc(r)+'</div>'+loc}
+ catch(e){$('fb').innerHTML='<p class=sm>Chưa gọi được AI nên đây là kết quả chấm tự động theo quy tắc.</p>'+loc}}
 function mtSetup(){$('sub').innerHTML=`<div class=card><h3>Nối từ</h3><p>Số câu:</p>${chipsOne('mn',[[5,5],[8,8],[10,10]])}<button class=go onclick="mtStart()">Bắt đầu</button></div>`}
 let M={};
 function mtStart(){const seen=new Set(),it=[];for(const w of sh(pool()))if(!seen.has(w.vi)){seen.add(w.vi);it.push(w)}
